@@ -30,18 +30,11 @@ export default function SignUpPage(props) {
 
   async function handleSubmit(e){
     e.preventDefault();
-  
-
   const formData = new FormData();
-
   formData.append('photo', selectedFile);
-
   for (let key in state){
     formData.append(key, state[key])
   }
-    console.log(formData, '<---this will show nothing')
-    console.log(formData.forEach((item) => console.log(item)), '<---- this is how you look inside form data')
-
     try{
       await userService.signup(formData)
       props.handleSignUpOrLogin()
@@ -52,10 +45,8 @@ export default function SignUpPage(props) {
   }
 
   function handleFileInput(e){
-    console.log(e.target.files)
     setSelectedFile(e.target.files[0])
   }
-
 
   return (
     <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">

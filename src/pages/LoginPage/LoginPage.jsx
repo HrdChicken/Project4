@@ -12,7 +12,6 @@ import {
   Segment,
 } from "semantic-ui-react";
 
-
 export default function LoginPage(props) {
   const [error, setError] = useState('')
   const [state, setState] = useState({
@@ -31,7 +30,6 @@ export default function LoginPage(props) {
 
   async function handleSubmit(e){
     e.preventDefault();
-
     try{
       await userService.login(state);
       props.handleSignUpOrLogin();
@@ -39,7 +37,6 @@ export default function LoginPage(props) {
     }catch(err){
       setError(err.message)
     }
-
   }
   
   return (

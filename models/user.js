@@ -7,7 +7,8 @@ const userSchema = new mongoose.Schema({
   username: {type: String, required: true, lowercase: true, unique: true},
   email: {type: String, required: true, lowercase: true, unique: true},
   password: String,
-  photoUrl: String  // string from aws!
+  photoUrl: String, 
+  bio: String
 }, {
   timestamps: true
 });
@@ -19,7 +20,6 @@ userSchema.set('toJSON', {
     return ret;
   }
 });
-/// in controller
 
 // this is if you populate the user
 userSchema.set('toObject', {
@@ -27,8 +27,7 @@ userSchema.set('toObject', {
    delete ret.password;
    return ret;
   }
-});
-
+})
 
 // DO NOT DEFINE instance methods with arrow functions, 
 // they prevent the binding of this
@@ -47,6 +46,7 @@ userSchema.pre('save', function(next) {
   });
 });
 
+// This is being used in the /controllers/users login function
 userSchema.methods.comparePassword = function(tryPassword, cb) {
     console.log(cb, ' this is cb')
   // 'this' represents the document that you called comparePassword on

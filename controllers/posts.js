@@ -2,13 +2,14 @@ const Post = require('../models/post');
 
 const { v4: uuidv4 } = require("uuid");
 const S3 = require("aws-sdk/clients/s3");
+const { default: mongoose } = require('mongoose');
 const s3 = new S3();
 
 const BUCKET = process.env.BUCKET_NAME;
 
 module.exports = {
     create,
-    index
+    index,
 }
 
 function create(req, res){

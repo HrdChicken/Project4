@@ -10,7 +10,7 @@ export default function PostFeed({
   user,
   addLike,
   removeLike,
-  loading
+  loading,
 }) {
 
   return (

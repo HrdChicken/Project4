@@ -55,7 +55,7 @@ export default function Feed({ user, handleSignUpOrLogin }) {
   }, []);
 
   return (
-    <Grid centered>
+    <Grid centered >
       <Grid.Row>
         <Grid.Column>
           <Header user={user} handleSignUpOrLogin={handleSignUpOrLogin} />
@@ -67,10 +67,10 @@ export default function Feed({ user, handleSignUpOrLogin }) {
         </Grid.Column>
       </Grid.Row>
       <Grid.Row>
-        <Grid.Column style={{ maxWidth: 450 }}>
+        <Grid.Column style={{ maxWidth: 850 }}>
           <PostFeed
             posts={posts}
-            numPhotosCol={1}
+            numPhotosCol={3}
             isProfile={false}
             user={user}
             addLike={addLike}

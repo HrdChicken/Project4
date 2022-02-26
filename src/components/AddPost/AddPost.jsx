@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Button, Form, Grid, Header, Image,  Segment } from 'semantic-ui-react'
+import { Button, Form, Grid, Icon, Segment } from 'semantic-ui-react'
 
 export default function AddPostForm(props){
   const [selectedFile, setSelectedFile] = useState('')
@@ -32,29 +32,27 @@ export default function AddPostForm(props){
   return (
     <Grid textAlign='center' verticalAlign='middle'>
       <Grid.Column style={{ maxWidth: 450 }}>
-        <Segment>
+        <Segment style={{backgroundColor: 'black'}}>
             <Form  autoComplete="off" onSubmit={handleSubmit}>
               <Form.Input
                   className="form-control"
                   name="caption"
                   value={state.caption}
-                  placeholder="What's on your pups mind?"
+                  placeholder="Whats the memory about?"
                   onChange={handleChange}
                   required
-                  />   
+                  /> 
               <Form.Input
                 className="form-control"
                 type="file"
                 name="photo"
-                placeholder="upload image"
+                placeholder="choose your memory"
                 onChange={handleFileInput}
               />   
-              <Button
-                type="submit"
-                className="btn"
-              >
-                ADD MEMORY
-              </Button>
+              <Button animated>
+            <Button.Content className="ButtonLink" visible>add memory</Button.Content>
+            <Button.Content hidden><Icon className="ButtonIcon" name='upload' /></Button.Content>
+        </Button>
             </Form>
           </Segment>
       </Grid.Column>

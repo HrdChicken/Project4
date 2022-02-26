@@ -24,7 +24,7 @@ function App() {
     <Routes>
       <Route
         path="/"
-        element={<Feed user={user} handleLogout={handleLogout} />}
+        element={<Feed user={user} className='RouteLinks' handleLogout={handleLogout} />}
       />
       <Route
         path="/login"

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { Navigate } from 'react-router-dom';
 import { Button, Form, Grid, Icon, Segment } from 'semantic-ui-react'
 
 export default function AddPostForm(props){
@@ -11,7 +11,6 @@ export default function AddPostForm(props){
   function handleFileInput(e){
     setSelectedFile(e.target.files[0])
   }
-
 
   function handleChange(e){
     setState({
@@ -31,27 +30,25 @@ export default function AddPostForm(props){
 
   return (
     <Grid textAlign='center' verticalAlign='middle'>
-      <Grid.Column style={{ maxWidth: 450 }}>
+      <Grid.Column style={{ maxWidth: 950 }}>
         <Segment style={{backgroundColor: 'black'}}>
             <Form  autoComplete="off" onSubmit={handleSubmit}>
               <Form.Input
-                  className="form-control"
                   name="caption"
                   value={state.caption}
-                  placeholder="Whats the memory about?"
+                  placeholder="Whats this memory about?"
                   onChange={handleChange}
                   required
                   /> 
               <Form.Input
-                className="form-control"
                 type="file"
                 name="photo"
                 placeholder="choose your memory"
                 onChange={handleFileInput}
-              />   
+              />
               <Button animated>
             <Button.Content className="ButtonLink" visible>add memory</Button.Content>
-            <Button.Content hidden><Icon className="ButtonIcon" name='upload' /></Button.Content>
+            <Button.Content hidden><Icon className="ButtonIcon" name='upload'/></Button.Content>
         </Button>
             </Form>
           </Segment>

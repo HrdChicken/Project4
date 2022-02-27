@@ -12,7 +12,6 @@ function App() {
 
   function handleSignUpOrLogin() {
     setUser(userService.getUser());
-    
   }
 
   function handleLogout() {
@@ -38,17 +37,17 @@ function App() {
     </Routes>
     )
   }
-
+  
   return (
     <Routes>
       <Route
         path="/login"
         element={<LoginPage handleSignUpOrLogin={handleSignUpOrLogin} />}
-      />
+        />
       <Route
         path="/signup"
         element={<SignupPage handleSignUpOrLogin={handleSignUpOrLogin} />}
-      />
+        />
       <Route path="/*" element={<Navigate to="/login" />} />
     </Routes>
   );

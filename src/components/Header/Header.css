@@ -2,6 +2,10 @@
     font-family: 'Oswald', sans-serif;
 }
 
+h1{
+    font-family: 'Oswald', sans-serif;
+}
+
 body{
     background-color: black;
 }
@@ -24,5 +28,6 @@ body{
 }
 
 .Links:hover{
-    color:rgb(255, 255, 255)
+    color:rgb(255, 255, 255);
+    text-decoration: underline;
 }

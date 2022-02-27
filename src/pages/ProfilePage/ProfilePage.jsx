@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Grid } from "semantic-ui-react";
+import { Grid, Segment } from "semantic-ui-react";
 import Header from "../../components/Header/Header";
 import Loading from "../../components/Loader/Loader";
 import ProfileBio from "../../components/ProfileBio/ProfileBio";
@@ -7,6 +7,8 @@ import PostFeed from "../../components/PostFeed/PostFeed";
 import userService from "../../utils/userService";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { useParams } from "react-router-dom";
+import AddPost from "../../components/AddPost/AddPost";
+import * as postsAPI from "../../utils/postApi";
 import * as likesAPI from "../../utils/likeApi";
 
 export default function ProfilePage(props) {
@@ -15,6 +17,19 @@ export default function ProfilePage(props) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
   const { username } = useParams();
+
+
+  async function handleAddPost(post) {
+    try {
+      setLoading(true);
+      const data = await postsAPI.create(post);
+      setPosts([data.post, ...posts]);
+      setLoading(false);
+    } catch (err) {
+      setError(err.message);
+    }
+  }
+
 
   async function getProfile() {
     try {
@@ -63,9 +78,8 @@ export default function ProfilePage(props) {
       </>
     );
   }
-
-  return (
-    <Grid>
+    return (
+      <Grid>
       <Grid.Row>
         <Grid.Column>
           <Header handleLogout={props.handleLogout} user={props.user}/>
@@ -73,21 +87,22 @@ export default function ProfilePage(props) {
       </Grid.Row>
       <Grid.Row>
         <Grid.Column>
-          <ProfileBio user={user} />
+      <ProfileBio user={user}/>
+      <AddPost handleAddPost={handleAddPost} />
         </Grid.Column>
       </Grid.Row>
       <Grid.Row centered>
-        <Grid.Column style={{ maxWidth: 750 }}>
+        <Grid.Column style={{ maxWidth: 1000 }}>
           <PostFeed
             isProfile={true}
             posts={posts}
-            numPhotosCol={3}
+            numPhotosCol={5}
             user={props.user}
             addLike={addLike}
             removeLike={removeLike}
-          />
+            />
         </Grid.Column>
       </Grid.Row>
     </Grid>
-  );
+  )
 }

@@ -5,7 +5,7 @@ import './PostCard.css'
 
 function PostCard({post, isProfile, user, addLike, removeLike}) {
   const likedIndex = post.likes.findIndex(like => like.username === user.username)
-  const likeColor = likedIndex > -1 ? 'blue' : 'grey';
+  const likeColor = likedIndex > -1 ? 'grey' : 'white';
   const clickHandler = likedIndex > -1 ? () => removeLike(post.likes[likedIndex]._id) : () => addLike(post._id)
 
   return (
@@ -16,16 +16,7 @@ function PostCard({post, isProfile, user, addLike, removeLike}) {
 	  <Card.Content textAlign="left" style={{backgroundColor: 'black'}}>
 		<Card.Content>
 		  <Link className='PostProfileLink' to={`/${post.user.username}`}>
-			<Image
-			  size="large"
-			  avatar
-			  src={
-				post.user.photoUrl
-				  ? post.user.photoUrl
-				  : "https://react.semantic-ui.com/images/wireframe/square-image.png"
-			  }
-			/>
-			{post.user.username}
+			@{post.user.username}
 		  </Link>
 		</Card.Content>
 	  </Card.Content>
@@ -34,7 +25,7 @@ function PostCard({post, isProfile, user, addLike, removeLike}) {
 	<Card.Content style={{backgroundColor: 'black'}}>
 	  <Card.Description style={{color: 'white'}}>{post.caption}</Card.Description>
 	</Card.Content>
-	<Card.Content extra textAlign={"center"} style={{backgroundColor: 'black', color: 'white'}} >
+	<Card.Content extra textAlign={"left"} style={{backgroundColor: 'black', color: 'white'}} >
 	  <Icon name={"thumbs up"} size="large" color={likeColor} onClick={clickHandler}/>
 	  {post.likes.length} Likes
 	</Card.Content>

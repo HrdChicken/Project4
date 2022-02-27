@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 import { Button, Form, Grid, Header, Image, Segment, Message } from "semantic-ui-react";
 import userService from "../../utils/userService";
-
+import './SignupPage.css'
 import { useNavigate } from "react-router-dom";
 
 
@@ -50,13 +50,13 @@ export default function SignUpPage(props) {
 
   return (
     <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
-      <Grid.Column style={{ maxWidth: 800 }}>
-        <Header as="h2" color="grey" textAlign="center">
+      <Grid.Column style={{ maxWidth: 600 }}>
+        <Header as="h2" textAlign="center">
           <Image src="" />
-          <Message>Sign Up</Message>
+          <h1>Sign Up</h1>
         </Header>
         <Form autoComplete="off" onSubmit={handleSubmit}>
-          <Segment stacked>
+          <Segment stacked style={{backgroundColor: 'black'}}>
             <Form.Input
               name="username"
               placeholder="username"

@@ -9,7 +9,6 @@ export default function PageHeader({ user, handleLogout }) {
     <Segment clearing style={{backgroundColor: 'gray'}}>
       <Header as="h2">
       <Image src='sys-safe.png'></Image>
-        Memory Share
         <Link to="/" className="Links">
         Home
         </Link>

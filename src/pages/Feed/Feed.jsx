@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Header from "../../components/Header/Header";
-import AddPost from "../../components/AddPost/AddPost";
 import PostFeed from "../../components/PostFeed/PostFeed";
 import * as postsAPI from "../../utils/postApi";
 import * as likesAPI from "../../utils/likeApi";
-import { Grid } from "semantic-ui-react";
+import { Grid, Segment } from "semantic-ui-react";
+import './Feed.css'
 
 export default function Feed({ user, handleSignUpOrLogin }) {
   const [posts, setPosts] = useState([]); // <- likes are inside of the each post in the posts array
@@ -30,17 +30,6 @@ export default function Feed({ user, handleSignUpOrLogin }) {
     }
   }
 
-  async function handleAddPost(post) {
-    try {
-      setLoading(true);
-      const data = await postsAPI.create(post);
-      setPosts([data.post, ...posts]);
-      setLoading(false);
-    } catch (err) {
-      setError(err.message);
-    }
-  }
-
   async function getPosts() {
     try {
       const data = await postsAPI.getAll();
@@ -55,17 +44,13 @@ export default function Feed({ user, handleSignUpOrLogin }) {
   }, []);
 
   return (
-    <Grid centered >
+    <Grid centered>
       <Grid.Row>
         <Grid.Column>
           <Header user={user} handleSignUpOrLogin={handleSignUpOrLogin} />
         </Grid.Column>
       </Grid.Row>
-      <Grid.Row>
-        <Grid.Column style={{ maxWidth: 450 }}>
-          <AddPost handleAddPost={handleAddPost} />
-        </Grid.Column>
-      </Grid.Row>
+      <h1>Shared Memories</h1>
       <Grid.Row>
         <Grid.Column style={{ maxWidth: 850 }}>
           <PostFeed

@@ -44,10 +44,10 @@ export default function LoginPage(props) {
       <Grid textAlign="center" verticalAlign="middle">
         <Grid.Column style={{ maxWidth: 450 }}>
           <Header as="h2" color="teal" textAlign="center">
-            <Message style={{marginTop: 280}}>Log In</Message>
+            <h1 className="headerText">Log In</h1>
           </Header>
           <Form autoComplete="off" onSubmit={handleSubmit}>
-            <Segment stacked>
+            <Segment stacked style={{backgroundColor: 'black'}}>
               <Form.Input
                 type="email"
                 name="email"
@@ -65,7 +65,6 @@ export default function LoginPage(props) {
                 required
               />
               <Button
-                color="grey"
                 fluid
                 size="large"
                 type="submit"
@@ -75,8 +74,8 @@ export default function LoginPage(props) {
               </Button>
             </Segment>
           </Form>
-          <Message>
-            New? <Link to="/signup">Sign Up</Link>
+          <Message style={{backgroundColor: 'gray'}}>
+            New? <Link to="/signup" style={{color: 'white'}}>Sign Up</Link>
           </Message>
           {error ? <ErrorMessage error={error} /> : null}
         </Grid.Column>

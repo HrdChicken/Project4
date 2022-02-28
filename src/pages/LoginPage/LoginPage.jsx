@@ -65,6 +65,7 @@ export default function LoginPage(props) {
                 required
               />
               <Button
+              style={{backgroundColor: 'grey', color: 'white'}}
                 fluid
                 size="large"
                 type="submit"
@@ -74,7 +75,7 @@ export default function LoginPage(props) {
               </Button>
             </Segment>
           </Form>
-          <Message style={{backgroundColor: 'gray'}}>
+          <Message style={{backgroundColor: 'grey'}}>
             New? <Link to="/signup" style={{color: 'white'}}>Sign Up</Link>
           </Message>
           {error ? <ErrorMessage error={error} /> : null}

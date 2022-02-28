@@ -49,8 +49,8 @@ export default function SignUpPage(props) {
   }
 
   return (
-    <Grid textAlign="center" style={{ height: "100vh" }} verticalAlign="middle">
-      <Grid.Column style={{ maxWidth: 600 }}>
+    <Grid textAlign="center" style={{ height: "90vh" }} verticalAlign="middle">
+      <Grid.Column style={{ maxWidth: 900 }}>
         <Header as="h2" textAlign="center">
           <Image src="" />
           <h1>Sign Up</h1>
@@ -102,7 +102,7 @@ export default function SignUpPage(props) {
                 required
               />
             </Form.Field>
-            <Button type="submit" className="btn">
+            <Button type="submit" style={{backgroundColor: 'grey', color: 'white'}}>
               Signup
             </Button>
           </Segment>

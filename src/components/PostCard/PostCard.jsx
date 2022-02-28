@@ -13,7 +13,7 @@ function PostCard({post, isProfile, user, addLike, removeLike}) {
 	{isProfile ? (
 	  ""
 	) : (
-	  <Card.Content textAlign="left" style={{backgroundColor: 'black'}}>
+	  <Card.Content style={{backgroundColor: 'black'}}>
 		<Card.Content>
 		  <Link className='PostProfileLink' to={`/${post.user.username}`}>
 			@{post.user.username}

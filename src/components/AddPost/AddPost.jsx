@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { Navigate } from 'react-router-dom';
 import { Button, Form, Grid, Icon, Segment } from 'semantic-ui-react'
 
 export default function AddPostForm(props){

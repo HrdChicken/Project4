@@ -1,23 +1,23 @@
 # Memory App
-### This app lets anyone share memories with others 
+### This app is used to share memories with others and can also be used to post pictures that you dont want to lose. All users must signup to be able to see the shared memories.
 
 ### Log In Page
 **Has to sign up**
 
-![login](image.jpg)
+![login](LogIn.png)
 
 ### Sign Up Page
 
-![signup](image.jpg)
+![signup](SignUp.png)
 
 ### Home Page
 **Has to be logged in to see**
 
-![homepage](image.jpg)
+![homepage](MainPage.png)
 
 ### Profile Page
 
-![profilepage](image.jpg)
+![profilepage](CreatePage.png)
 
 ### Technologies Used
 - Node.js

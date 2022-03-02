@@ -16,6 +16,7 @@
 ![homepage](MainPage.png)
 
 ### Profile Page
+**Has to be logged in to see**
 
 ![profilepage](CreatePage.png)
 
